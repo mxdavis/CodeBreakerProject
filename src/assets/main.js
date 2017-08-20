@@ -17,6 +17,7 @@ function setHiddenFields() {
   } else if (answer.value < 1000) {
     return answer.value = "0" + answer.value
   } else {
-    return answer.value
+    return answer.value.toString()
   }
+  attempt.value = 0
 }
