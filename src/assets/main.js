@@ -2,32 +2,29 @@ let answer = document.getElementById('answer');
 let attempt = document.getElementById('attempt');
 
 function guess() {
-    let input = document.getElementById('user-guess');
-    if (answer.value == `('')` || attempt.value == `('')`) {
-      setHiddenFields()
-    }
+  let input = document.getElementById('user-guess');
+  if (answer.value == `('')` || attempt.value == `('')`) {
+    setHiddenFields()
+  }
 
-    if (!!validateInput(input.value)){
-      attempt.value ++
-    } else {
-      return false
-    }
+  if (!!validateInput(input.value)){
+    attempt.value ++
+  } else {
+    return false
+  }
 
-    if(getResults(input.value)) {
-      setMessage('You Win! :)')
-      showAnswer(true)
-      showReplay()
-    } else if(attempt.value >= 10) {
-      setMessage('You Lose! :(')
-      showAnswer(false)
-      showReplay()
-    } else {
-      setMessage('Incorrect, try again.')
-    }
-    //add functionality to guess function here
+  if(getResults(input.value)) {
+    setMessage('You Win! :)')
+    showAnswer(true)
+    showReplay()
+  } else if(attempt.value >= 10) {
+    setMessage('You Lose! :(')
+    showAnswer(false)
+    showReplay()
+  } else {
+    setMessage('Incorrect, try again.')
+  }
 }
-
-//implement new functions here
 
 function setHiddenFields() {
   answer.value = Math.floor(Math.random() * 9999)
